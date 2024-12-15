@@ -71,5 +71,5 @@ app.post('/api/messages', (req, res) => {
 
 // Démarrage du serveur
 app.listen(PORT, () => {
-    console.log(`Server is running at https://barbershop-production-cbca.up.railway.app`);
+    console.log(`Server is running at http://localhost:${PORT}`);
 });
