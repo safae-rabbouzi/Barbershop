@@ -1,12 +1,19 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const cors = require('cors'); // Ajout de CORS
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware pour analyser les JSON
 app.use(express.json());
+
+// Middleware CORS : Autoriser les requêtes cross-origin
+app.use(cors({
+    origin: 'https://barbershop-production-cbca.up.railway.app', // Autoriser uniquement votre frontend déployé
+    methods: ['GET', 'POST'], // Autoriser les méthodes nécessaires
+}));
 
 // Middleware pour servir les fichiers statiques
 app.use(express.static(path.join(__dirname, 'public')));
