@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadAppointments() {
         try {
             // Requête à l'API pour récupérer les rendez-vous
-            const response = await fetch('https://barbershopappointment.onrender.com/api/bookings');
+            const response = await fetch('http://localhost:3000/api/bookings');
             const appointments = await response.json();
 
             // Vérifier si la réponse contient des rendez-vous
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const date = document.getElementById('date').value;
             const time = document.getElementById('time').value;
 
-            const response = await fetch('https://barbershopappointment.onrender.com/api/bookings', {
+            const response = await fetch('http://localhost:3000/api/bookings', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, date, time }),
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
 
-            const response = await fetch('https://barbershopappointment.onrender.com/api/messages', {
+            const response = await fetch('http://localhost:3000/api/messages', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, message }),
